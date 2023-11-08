@@ -20,13 +20,13 @@ class UserController {
             const user = await this.UserModel.findUserByEmailAndPassword(email, matkhau);
             if (user) {
                 res.json({
-                    id: user.Id,
-                    ho: user.Ho,
-                    ten: user.Ten,
-                    sdt: user.SDT,
-                    email: user.Email,
-                    lop: user.Lop,
-                    ngaySinh: user.NgaySinh,
+                    id: user.id,
+                    ho: user.ho,
+                    ten: user.ten,
+                    sdt: user.sdt,
+                    email: user.email,
+                    lop: user.lop,
+                    ngaySinh: user.ngaysinh,
                 });
             } else {
                 res.status(401).send('Incorrect email or password');

@@ -27,7 +27,7 @@ class UserModel {
             request.input('lop', mssql.NVarChar, user.lop);
             request.input('ngaysinh', mssql.NVarChar, user.ngaySinh);
             const insertSql =
-                'INSERT INTO [User] (Ho, Ten, SDT, Email, MatKhau, Lop, NgaySinh) VALUES (@ho, @ten, @sdt, @email, @matkhau, @lop, @ngaysinh)';
+                'INSERT INTO [User] (ho, ten, sdt, email, matkhau, lop, ngaysinh) VALUES (@ho, @ten, @sdt, @email, @matkhau, @lop, @ngaysinh)';
             const result = await request.query(insertSql);
             pool.close();
             return result.rowsAffected[0];
@@ -44,7 +44,7 @@ class UserModel {
             request.input('email', mssql.NVarChar, email);
             request.input('matkhau', mssql.NVarChar, matkhau);
             const selectSql =
-                'SELECT * FROM [User] WHERE Email = @email AND MatKhau = @matkhau';
+                'SELECT * FROM [User] WHERE email = @email AND matkhau = @matkhau';
             const result = await request.query(selectSql);
             const user = result.recordset[0];
             pool.close();
